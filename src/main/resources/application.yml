@@ -1,0 +1,26 @@
+server:
+    port: 9000
+spring:
+    application:
+        name: $artifactId$
+
+    rabbitmq:
+        host: 192.168.1.6
+        port: 5672
+        username: admin
+        password: admin
+        listener:
+            direct:
+                acknowledge-mode: manual
+            simple:
+                acknowledge-mode: manual
+
+        publisher-confirm-type: correlated
+        publisher-returns: true
+    elasticsearch:
+        rest:
+            uris: http://192.168.161.135:9200
+
+logging:
+    level:
+        com.wlgdo.mq.app: debug
